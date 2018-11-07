@@ -5,6 +5,9 @@ using UnityEngine;
 public class CamRelativeKeyboardControls : MonoBehaviour {
 
     public float movementSpeed;
+    public float movementSmooth;
+    Vector3 refMovement;
+    Vector3 movement;
     Transform camT;
 
 	// Use this for initialization
@@ -15,11 +18,19 @@ public class CamRelativeKeyboardControls : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //Get the inputs from the user
-        Vector3 inputs = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Vector3 inputs = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+
+        Vector3 cameraForward = camT.forward;
+        cameraForward.y = 0;
+        cameraForward.Normalize();
+        Vector3 cameraRight = camT.right;
+        cameraRight.y = 0;
+        cameraRight.Normalize();
 
         //Use these inputs as being in camera space, and convert them into word space
-        Vector3 worldSpaceInputs = camT.TransformDirection(inputs);
-        Vector3 movement = worldSpaceInputs * movementSpeed * Time.deltaTime;
+        Vector3 newMovement = cameraForward * inputs.z * movementSpeed * Time.deltaTime;
+        newMovement += cameraRight * inputs.x * movementSpeed * Time.deltaTime;
+        movement = Vector3.SmoothDamp(movement, newMovement, ref refMovement, movementSmooth);
         transform.Translate(movement, Space.World);
 
         RotateByAcceleration();
@@ -36,7 +47,8 @@ public class CamRelativeKeyboardControls : MonoBehaviour {
         Vector3 newAcceleration;
         LinearAcceleration(out newAcceleration, transform.position, 3);
         acceleration = Vector3.SmoothDamp(acceleration, newAcceleration, ref refAcceleration, rotationSmooth);
-        transform.eulerAngles = acceleration * rotationAmount;
+        Vector3 rotation = Vector3.Cross(Vector3.up, acceleration);
+        transform.eulerAngles = rotation * rotationAmount;
     }
 
     Vector3[] positionRegister;

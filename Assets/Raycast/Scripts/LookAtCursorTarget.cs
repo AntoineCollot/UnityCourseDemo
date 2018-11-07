@@ -30,6 +30,12 @@ public class LookAtCursorTarget : MonoBehaviour {
 
             //Makes the transform look at the target
             transform.LookAt(targetLookAt);
+
+            //Ignore x and z rotations
+            Vector3 rot = transform.localEulerAngles;
+            rot.x = 0;
+            rot.z = 0;
+            transform.localEulerAngles = rot;
         }
 	}
 }
