@@ -10,10 +10,13 @@ public class CamRelativeKeyboardControls : MonoBehaviour {
     Vector3 movement;
     Transform camT;
 
+    CharacterController controller;
+
 	// Use this for initialization
 	void Start () {
         camT = Camera.main.transform;
-	}
+        controller = GetComponent<CharacterController>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -31,8 +34,12 @@ public class CamRelativeKeyboardControls : MonoBehaviour {
         Vector3 newMovement = cameraForward * inputs.z * movementSpeed * Time.deltaTime;
         newMovement += cameraRight * inputs.x * movementSpeed * Time.deltaTime;
         movement = Vector3.SmoothDamp(movement, newMovement, ref refMovement, movementSmooth);
-        transform.Translate(movement, Space.World);
 
+        //Move the drone using the character controller pre-made component. It does the same thing as the following line, but takes collisions into account
+        //transform.Translate(movement, Space.World);
+        controller.Move(movement);
+
+        //Apply a rotation based on the acceleration to make the movement looks more pleasing
         RotateByAcceleration();
 	}
 
