@@ -8,19 +8,32 @@ ModelImporter:
     100000: //RootNode
     100002: Sail
     100004: ToonBoat
+    100006: Armature
+    100008: LowerSail
+    100010: Mast
+    100012: UpperSail
     400000: //RootNode
     400002: Sail
     400004: ToonBoat
+    400006: Armature
+    400008: LowerSail
+    400010: Mast
+    400012: UpperSail
     2300000: //RootNode
     2300002: Sail
     2300004: ToonBoat
+    2300006: Mast
     3300000: //RootNode
     3300002: Sail
     3300004: ToonBoat
+    3300006: Mast
     4300000: ToonBoat
     4300002: Sail
+    4300004: Mast
     7400000: Default Take
+    7400002: SailWind
     9500000: //RootNode
+    13700000: Sail
   externalObjects:
   - first:
       type: UnityEngine:Material

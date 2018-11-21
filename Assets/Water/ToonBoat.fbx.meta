@@ -8,15 +8,33 @@ ModelImporter:
     100000: Sail
     100002: //RootNode
     100004: ToonBoat
+    100006: Armature
+    100008: LowerSail
+    100010: LowerSail_end
+    100012: Mast
+    100014: UpperSail
     400000: Sail
     400002: //RootNode
     400004: ToonBoat
+    400006: Armature
+    400008: LowerSail
+    400010: LowerSail_end
+    400012: Mast
+    400014: UpperSail
     2300000: Sail
     2300002: ToonBoat
+    2300004: Mast
     3300000: Sail
     3300002: ToonBoat
+    3300004: Mast
     4300000: Sail
     4300002: ToonBoat
+    4300004: Mast
+    7400000: Armature|ArmatureAction
+    7400002: SailWind
+    7400004: Armature|SailWind2
+    9500000: //RootNode
+    13700000: Sail
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -41,14 +59,42 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: SailWind
+      takeName: Armature|SailWind
+      firstFrame: 0
+      lastFrame: 93
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -91,10 +137,10 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
