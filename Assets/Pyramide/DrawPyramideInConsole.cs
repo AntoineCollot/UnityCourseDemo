@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DrawPyramideInConsole : MonoBehaviour {
 
-    public int lineCount;
+    public int lineCount = 10;
 
 	// Use this for initialization
 	void Start () {
@@ -31,5 +31,5 @@ public class DrawPyramideInConsole : MonoBehaviour {
             pyramide += line + "\n";
         }
         Debug.Log(pyramide);
-	}
+    }
 }
