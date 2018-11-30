@@ -23,9 +23,11 @@ public class CamRelativeKeyboardControls : MonoBehaviour {
         //Get the inputs from the user
         Vector3 inputs = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
 
+        //Get the forward direction of the camera but ignore the Y element
         Vector3 cameraForward = camT.forward;
         cameraForward.y = 0;
         cameraForward.Normalize();
+        //Get the right direction of the camera but ignore the Y element
         Vector3 cameraRight = camT.right;
         cameraRight.y = 0;
         cameraRight.Normalize();
