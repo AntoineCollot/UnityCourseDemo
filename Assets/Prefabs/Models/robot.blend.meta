@@ -25,6 +25,8 @@ ModelImporter:
     400016: Root
     4300000: Cube
     7400000: Default Take
+    7400002: Action
+    7400004: Idle
     9500000: //RootNode
     13700000: Cube
   externalObjects:
@@ -33,6 +35,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: None__Untitled
     second: {fileID: 2100000, guid: 3742da5cb7fb0f84598de28d0338de62, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: None__robotTexture_png_001
+    second: {fileID: 2100000, guid: b9df034ac3a299c4f9fa397aaead990f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
