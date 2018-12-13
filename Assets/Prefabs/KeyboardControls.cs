@@ -6,9 +6,10 @@ public class KeyboardControls : MonoBehaviour {
 
 	public float speed;
 	public float jumpForce;
+    public float turnSpeed;
 
     Rigidbody r;
-    Vector3 inputVelocity;
+    Vector3 inputs;
 
     // Use this for initialization
     void Awake () {
@@ -18,7 +19,7 @@ public class KeyboardControls : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        inputVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * speed;
+        inputs = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -28,7 +29,10 @@ public class KeyboardControls : MonoBehaviour {
 	
 	void FixedUpdate()
 	{
-        inputVelocity.y = r.velocity.y;
-        r.velocity = inputVelocity;
+        Vector3 newVelocity = transform.forward * inputs.z * speed;
+        
+        newVelocity.y = r.velocity.y;
+        r.velocity = newVelocity;
+        r.angularVelocity = Vector3.up * inputs.x* turnSpeed;
 	}
 }

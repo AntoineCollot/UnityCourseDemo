@@ -37,6 +37,10 @@ ModelImporter:
     7400000: Action
     7400002: Armature|Action.001
     7400004: Idle
+    7400006: Action
+    7400008: Idle
+    7400010: Cube|Action
+    7400012: Cube|Action.001
     9500000: //RootNode
     13700000: Cube
   externalObjects:
@@ -75,7 +79,7 @@ ModelImporter:
       name: Action
       takeName: Armature|Action
       firstFrame: 0
-      lastFrame: 19
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -103,7 +107,7 @@ ModelImporter:
       name: Idle
       takeName: Armature|Idle
       firstFrame: 0
-      lastFrame: 39
+      lastFrame: 23
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
